@@ -21,7 +21,7 @@ Currently open to work — full-stack, RPA / automation, or roles where
   FastAPI webhook receiver ingesting Australian CDR (open-banking)
   transactions; SQLModel persistence; Streamlit + Plotly dashboard with
   Decimal-precision money handling.
-- **[vfdDash](https://github.com/dmellok/vfdDash)** —
+- **[vfdDash](https://github.com/dmellok/cppVFDDash)** —
   Custom C++ firmware on Raspberry Pi Pico W driving a Futaba GP1287BI
   VFD, with OTA updates and MQTT integration.
 
