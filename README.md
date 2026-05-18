@@ -11,7 +11,7 @@ Currently open to work — full-stack, RPA / automation, or roles where
 
 #### What I'm working on
 
-- **[Claude Usage Monitor](https://github.com/dmellok/claude-usage-monitor)** —
+- **[Claude Usage Monitor](https://github.com/dmellok/ClaudeUsage)** —
   Native macOS menu-bar app talking to Anthropic's API via OAuth; publishes
   usage metrics over MQTT.
 - **[Inky-Dash v4](https://github.com/dmellok/inky-dash)** —
