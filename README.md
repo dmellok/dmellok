@@ -3,8 +3,7 @@
 Developer in Melbourne. Twelve years at ANZ — most recently six years
 building RPA bots and VBA tools as an RPA Developer & Platform Support
 Engineer (until December 2025). Outside ANZ I ship Python web apps,
-native macOS Swift, and embedded C++. Claude Code and Cursor are part
-of how I work daily.
+native macOS Swift, and embedded C++.
 
 Currently open to work — full-stack, RPA / automation, or roles where
 "builds with AI" means something.
