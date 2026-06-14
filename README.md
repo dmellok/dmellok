@@ -1,20 +1,20 @@
 ### Kayden D'Mello
 
-Developer in Melbourne. Twelve years at ANZ, the last six as an RPA Developer / Platform Support Engineer (until December 2025). Now I ship full-stack Python services, native macOS in Swift, and embedded C/C++ on RP2040 and ESP32-S3 — usually with each other on the other end of an MQTT topic.
+Developer in Melbourne. Twelve years at ANZ, the last six as an RPA Developer / Platform Support Engineer (until December 2025). Now I ship full-stack Python services, native macOS in Swift, and embedded C/C++ on RP2040 and ESP32-S3, usually with each other on the other end of an MQTT topic.
 
-**Currently open to work** — full-stack, automation/RPA, embedded-adjacent.
+**Currently open to work**: full-stack, automation/RPA, embedded-adjacent.
 
 ---
 
 #### What I'm working on
 
-[**Tesserae**](https://github.com/dmellok/tesserae) — composable e-ink dashboard platform. Plugin-architected renderers and devices, 30 bundled widgets plus a [community catalog](https://github.com/dmellok/tesserae-widgets) of opt-in bundles, MQTT auto-discovery across multiple panels, Docker + bare-metal installers, [docs site](https://dmellok.github.io/tesserae/). My main project; the full ecosystem is grouped below.
+[**Tesserae**](https://github.com/dmellok/tesserae): composable e-ink dashboard platform. Plugin-architected renderers and devices, 30 bundled widgets plus a [community catalog](https://github.com/dmellok/tesserae-widgets) of opt-in bundles, MQTT auto-discovery across multiple panels, Docker + bare-metal installers, [docs site](https://dmellok.github.io/tesserae/). My main project; the full ecosystem is grouped below.
 
-[**OpenBanking Finance**](https://github.com/dmellok/openbanking-finance) — self-hosted FastAPI dashboard ingesting Australian CDR transactions via Redbark. SQLModel persistence, rate-limit-aware async client, Decimal-precision money, six tabs of charts.
+[**OpenBanking Finance**](https://github.com/dmellok/openbanking-finance): self-hosted FastAPI dashboard ingesting Australian CDR transactions via Redbark. SQLModel persistence, rate-limit-aware async client, Decimal-precision money, six tabs of charts.
 
-[**Claude Usage**](https://github.com/dmellok/claude-usage) — native macOS menu-bar app for Claude Code budgets. Reads the OAuth token from Keychain, calls Anthropic's usage endpoint, publishes the result to MQTT for Home Assistant.
+[**Claude Usage**](https://github.com/dmellok/claude-usage): native macOS menu-bar app for Claude Code budgets. Reads the OAuth token from Keychain, calls Anthropic's usage endpoint, publishes the result to MQTT for Home Assistant.
 
-[**VFD Desk HUD**](https://github.com/dmellok/vfd-dash) — Pi Pico W driving a 256×50 GP1287BI vacuum-fluorescent panel. 11 pages, OTA flashing, custom u8g2 fork for the BI controller, ~20 fps render loop. [Full writeup](https://dmello.io/building-a-vfd-desk-hud-with-a-pi-pico-w/?ref=github).
+[**VFD Desk HUD**](https://github.com/dmellok/vfd-dash): Pi Pico W driving a 256×50 GP1287BI vacuum-fluorescent panel. 11 pages, OTA flashing, custom u8g2 fork for the BI controller, ~20 fps render loop. [Full writeup](https://dmello.io/building-a-vfd-desk-hud-with-a-pi-pico-w/?ref=github).
 
 ---
 
@@ -23,20 +23,20 @@ Developer in Melbourne. Twelve years at ANZ, the last six as an RPA Developer / 
 <details>
 <summary><b>Core</b> · 3 repos</summary>
 
-- [tesserae](https://github.com/dmellok/tesserae) — the server: composer, renderers, scheduler, MQTT push, Spectra theme system, marketplace install pipeline
-- [tesserae-widgets](https://github.com/dmellok/tesserae-widgets) — the community catalog index + screenshots, audit-only review
-- [homeassistant-tesserae-addon](https://github.com/dmellok/homeassistant-tesserae-addon) — HA Supervisor App (stable + edge channels)
+- [tesserae](https://github.com/dmellok/tesserae) · the server: composer, renderers, scheduler, MQTT push, Spectra theme system, marketplace install pipeline
+- [tesserae-widgets](https://github.com/dmellok/tesserae-widgets) · the community catalog index + screenshots, audit-only review
+- [homeassistant-tesserae-addon](https://github.com/dmellok/homeassistant-tesserae-addon) · HA Supervisor App (stable + edge channels)
 
 </details>
 
 <details>
 <summary><b>Clients</b> · 5 repos · daemons + firmware that paint a panel</summary>
 
-- [tesserae-pi-png-client](https://github.com/dmellok/tesserae-pi-png-client) — Raspberry Pi · universal PNG path via the Pimoroni `inky` library
-- [tesserae-pi-bin-client](https://github.com/dmellok/tesserae-pi-bin-client) — Raspberry Pi · fast 4-bpp `.bin` path for Inky Impression
-- [tesserae-esp32-bin-client](https://github.com/dmellok/tesserae-esp32-bin-client) — Battery ESP32-S3 + Waveshare 13.3" Spectra 6
-- [tesserae-esp32-bw-client](https://github.com/dmellok/tesserae-esp32-bw-client) — Battery ESP32 + Waveshare 4.2" e-paper (400×300, 1-bpp B/W)
-- [tesserae-photopainter-7.3-bin-client](https://github.com/dmellok/tesserae-photopainter-7.3-bin-client) — Battery ESP32-S3 + Waveshare 7.3" Spectra 6 (PhotoPainter)
+- [tesserae-pi-png-client](https://github.com/dmellok/tesserae-pi-png-client) · Raspberry Pi, universal PNG path via the Pimoroni `inky` library
+- [tesserae-pi-bin-client](https://github.com/dmellok/tesserae-pi-bin-client) · Raspberry Pi, fast 4-bpp `.bin` path for Inky Impression
+- [tesserae-esp32-bin-client](https://github.com/dmellok/tesserae-esp32-bin-client) · Battery ESP32-S3 + Waveshare 13.3" Spectra 6
+- [tesserae-esp32-bw-client](https://github.com/dmellok/tesserae-esp32-bw-client) · Battery ESP32 + Waveshare 4.2" e-paper (400×300, 1-bpp B/W)
+- [tesserae-photopainter-7.3-bin-client](https://github.com/dmellok/tesserae-photopainter-7.3-bin-client) · Battery ESP32-S3 + Waveshare 7.3" Spectra 6 (PhotoPainter)
 
 </details>
 
@@ -96,12 +96,3 @@ Or filter the lot on the [topic page](https://github.com/dmellok?tab=repositorie
 #### Reach me
 
 [dmello.io](https://dmello.io/?ref=github) · [LinkedIn](https://www.linkedin.com/in/dmello-io/) · <dmellok@icloud.com>
-
----
-
-<a href="https://github.com/dmellok/tesserae">
-  <img src="https://github-readme-stats.vercel.app/api?username=dmellok&hide_title=true&hide_border=true&show_icons=true&include_all_commits=true&count_private=true&hide=contribs&line_height=22" height="125" alt="GitHub stats"/>
-</a>
-<a href="https://github.com/dmellok/tesserae">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=dmellok&hide_border=true&layout=compact&langs_count=6&hide=html,css" height="125" alt="Top languages"/>
-</a>
