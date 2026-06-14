@@ -89,7 +89,6 @@ Or filter the lot on the [topic page](https://github.com/dmellok?tab=repositorie
 **Web** FastAPI · Flask · SQLModel · Lit · Playwright
 **Native / embedded** SwiftUI · PlatformIO · arduino-pico · ESP-IDF
 **AI** Anthropic API · Claude Code · MCP
-**Ex-ANZ** Automation Anywhere · VBA · MS SQL Server
 
 ---
 
