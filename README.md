@@ -1,5 +1,3 @@
-![Phosphor-green pixel-art workbench with two black cats, a Raspberry Pi driving an e-ink weather dashboard, a VFD strip, and a soldering iron, in the style of a CRT terminal](assets/hero.png)
-
 ### Kayden D'Mello
 
 Developer in Melbourne. Twelve years at ANZ, the last six as an RPA Developer / Platform Support Engineer (until December 2025). Now I ship full-stack Python services, native macOS in Swift, and embedded C/C++ on RP2040 and ESP32-S3, usually with each other on the other end of an MQTT topic.
