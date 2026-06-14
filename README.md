@@ -1,4 +1,4 @@
-![Phosphor-green pixel-art workbench with two black cats, a Raspberry Pi, an e-ink panel, a VFD strip, and a soldering iron, in the style of a CRT terminal](assets/hero.jpg)
+![Phosphor-green pixel-art workbench with two black cats, a Raspberry Pi driving an e-ink weather dashboard, a VFD strip, and a soldering iron, in the style of a CRT terminal](assets/hero.png)
 
 ### Kayden D'Mello
 
