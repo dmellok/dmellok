@@ -8,7 +8,7 @@ Developer in Melbourne. Twelve years at ANZ, the last six as an RPA Developer / 
 
 #### What I'm working on
 
-[**Tesserae**](https://github.com/dmellok/tesserae): composable e-ink dashboard platform. Plugin-architected renderers and devices, 30 bundled widgets plus a [community catalog](https://github.com/dmellok/tesserae-widgets) of opt-in bundles, MQTT auto-discovery across multiple panels, Docker + bare-metal installers, [docs site](https://dmellok.github.io/tesserae/). My main project; the full ecosystem is grouped below.
+[**Tesserae**](https://github.com/dmellok/tesserae): composable e-ink dashboard platform. Plugin-architected renderers and devices, 33 bundled widgets plus a [community catalog](https://github.com/dmellok/tesserae-widgets) of opt-in bundles, MQTT auto-discovery across multiple panels, Docker + bare-metal installers, [docs site](https://dmellok.github.io/tesserae/). My main project; the full ecosystem is grouped below.
 
 [**OpenBanking Finance**](https://github.com/dmellok/openbanking-finance): self-hosted FastAPI dashboard ingesting Australian CDR transactions via Redbark. SQLModel persistence, rate-limit-aware async client, Decimal-precision money, six tabs of charts.
 
@@ -30,40 +30,45 @@ Developer in Melbourne. Twelve years at ANZ, the last six as an RPA Developer / 
 </details>
 
 <details>
-<summary><b>Clients</b> · 5 repos · daemons + firmware that paint a panel</summary>
+<summary><b>Clients</b> · 6 repos · daemons + firmware that paint a panel</summary>
 
-- [tesserae-pi-png-client](https://github.com/dmellok/tesserae-pi-png-client) · Raspberry Pi, universal PNG path via the Pimoroni `inky` library
-- [tesserae-pi-bin-client](https://github.com/dmellok/tesserae-pi-bin-client) · Raspberry Pi, fast 4-bpp `.bin` path for Inky Impression
-- [tesserae-esp32-bin-client](https://github.com/dmellok/tesserae-esp32-bin-client) · Battery ESP32-S3 + Waveshare 13.3" Spectra 6
-- [tesserae-esp32-bw-client](https://github.com/dmellok/tesserae-esp32-bw-client) · Battery ESP32 + Waveshare 4.2" e-paper (400×300, 1-bpp B/W)
-- [tesserae-photopainter-7.3-bin-client](https://github.com/dmellok/tesserae-photopainter-7.3-bin-client) · Battery ESP32-S3 + Waveshare 7.3" Spectra 6 (PhotoPainter)
+- [tesserae-device-pi-png](https://github.com/dmellok/tesserae-device-pi-png) · Raspberry Pi, universal PNG path via the Pimoroni `inky` library
+- [tesserae-device-pi-bin](https://github.com/dmellok/tesserae-device-pi-bin) · Raspberry Pi, fast 4-bpp `.bin` path for Inky Impression
+- [tesserae-device-esp32-bin](https://github.com/dmellok/tesserae-device-esp32-bin) · Battery ESP32-S3 + Waveshare 13.3" Spectra 6
+- [tesserae-device-esp32-bw](https://github.com/dmellok/tesserae-device-esp32-bw) · Battery ESP32 + Waveshare 4.2" e-paper (400×300, 1-bpp B/W)
+- [tesserae-device-photopainter-7.3-bin](https://github.com/dmellok/tesserae-device-photopainter-7.3-bin) · Battery ESP32-S3 + Waveshare 7.3" Spectra 6 (PhotoPainter)
+- [tesserae-device-pico-bin](https://github.com/dmellok/tesserae-device-pico-bin) · Battery Pico Plus 2 (RP2350) + Pimoroni Inky Impression 13.3" Spectra 6
 
 </details>
 
 <details>
-<summary><b>Widget bundles</b> · 21 repos · install via Browse community widgets</summary>
+<summary><b>Widget bundles</b> · 25 repos · install via Browse community widgets</summary>
 
-- [tesserae-ai-brief](https://github.com/dmellok/tesserae-ai-brief) · AI-generated daily brief from weather, todos, calendar, HA entities
-- [tesserae-recipes](https://github.com/dmellok/tesserae-recipes) · Schema.org Recipe scraper (RecipeTin Eats, BBC Good Food, NYT Cooking)
-- [tesserae-calendar-schedule](https://github.com/dmellok/tesserae-calendar-schedule) · Google-Calendar-style agenda view, multi-feed
-- [tesserae-paperlesspaper-art](https://github.com/dmellok/tesserae-paperlesspaper-art) · Full-bleed public-domain + CC art
-- [tesserae-f1](https://github.com/dmellok/tesserae-f1) · Formula 1 race weekend + standings
-- [tesserae-spotify](https://github.com/dmellok/tesserae-spotify) · Now playing, queue, album art
-- [tesserae-github](https://github.com/dmellok/tesserae-github) · CI status, PR queue, contributions, releases
-- [tesserae-finance](https://github.com/dmellok/tesserae-finance) · FX, stock, crypto
-- [tesserae-sky](https://github.com/dmellok/tesserae-sky) · Aurora alerts + moon phase
-- [tesserae-bom-warnings](https://github.com/dmellok/tesserae-bom-warnings) · Australian BoM weather warnings by state
-- [tesserae-air-traffic](https://github.com/dmellok/tesserae-air-traffic) · Flights overhead via OpenSky Network
-- [tesserae-weather-extras](https://github.com/dmellok/tesserae-weather-extras) · Air quality, pollen, wind
-- [tesserae-clock-extras](https://github.com/dmellok/tesserae-clock-extras) · QLOCKTWO-style word clock, world clocks
-- [tesserae-glances](https://github.com/dmellok/tesserae-glances) · Homelab host stats from a Glances API
-- [tesserae-octoprint](https://github.com/dmellok/tesserae-octoprint) · OctoPrint 3D printer status
-- [tesserae-unsplash](https://github.com/dmellok/tesserae-unsplash) · Daily Unsplash photo
-- [tesserae-apple-album](https://github.com/dmellok/tesserae-apple-album) · iCloud Shared Album carousel
-- [tesserae-transport](https://github.com/dmellok/tesserae-transport) · Melbourne PTV next departures
-- [tesserae-public-holiday-countdown](https://github.com/dmellok/tesserae-public-holiday-countdown) · Countdown to the next public holiday
-- [tesserae-community-demo](https://github.com/dmellok/tesserae-community-demo) · Hello-world widget for the marketplace install pipeline
-- [tesserae-devref-bundle](https://github.com/dmellok/tesserae-devref-bundle) · Every plugin contract surface in one repo, for widget developers
+- [tesserae-widget-ai-brief](https://github.com/dmellok/tesserae-widget-ai-brief) · AI-generated daily brief from weather, todos, calendar, HA entities
+- [tesserae-widget-recipes](https://github.com/dmellok/tesserae-widget-recipes) · Schema.org Recipe scraper (RecipeTin Eats, BBC Good Food, NYT Cooking)
+- [tesserae-widget-calendar-schedule](https://github.com/dmellok/tesserae-widget-calendar-schedule) · Google-Calendar-style agenda view, multi-feed
+- [tesserae-widget-paperlesspaper-art](https://github.com/dmellok/tesserae-widget-paperlesspaper-art) · Full-bleed public-domain + CC art
+- [tesserae-fal-image](https://github.com/dmellok/tesserae-fal-image) · Full-bleed AI-generated images via Fal.ai (Flux Schnell, Flux Dev)
+- [tesserae-widget-f1](https://github.com/dmellok/tesserae-widget-f1) · Formula 1 race weekend + standings
+- [tesserae-widget-afl](https://github.com/dmellok/tesserae-widget-afl) · AFL ladder, fixtures, next/last match (Squiggle API)
+- [tesserae-widget-football](https://github.com/dmellok/tesserae-widget-football) · Per-team match (next/last/live), league + group standings
+- [tesserae-widget-spotify](https://github.com/dmellok/tesserae-widget-spotify) · Now playing, queue, album art
+- [tesserae-widget-github](https://github.com/dmellok/tesserae-widget-github) · CI status, PR queue, contributions, releases
+- [tesserae-widget-posthog](https://github.com/dmellok/tesserae-widget-posthog) · Configurable PostHog trends metric (hero number + sparkline/bar)
+- [tesserae-widget-finance](https://github.com/dmellok/tesserae-widget-finance) · FX, stock, crypto
+- [tesserae-widget-sky](https://github.com/dmellok/tesserae-widget-sky) · Aurora alerts + moon phase
+- [tesserae-widget-bom-warnings](https://github.com/dmellok/tesserae-widget-bom-warnings) · Australian BoM weather warnings by state
+- [tesserae-widget-air-traffic](https://github.com/dmellok/tesserae-widget-air-traffic) · Flights overhead via OpenSky Network
+- [tesserae-widget-weather-extras](https://github.com/dmellok/tesserae-widget-weather-extras) · Air quality, pollen, wind
+- [tesserae-widget-clock-extras](https://github.com/dmellok/tesserae-widget-clock-extras) · QLOCKTWO-style word clock, world clocks
+- [tesserae-widget-glances](https://github.com/dmellok/tesserae-widget-glances) · Homelab host stats from a Glances API
+- [tesserae-widget-octoprint](https://github.com/dmellok/tesserae-widget-octoprint) · OctoPrint 3D printer status
+- [tesserae-widget-unsplash](https://github.com/dmellok/tesserae-widget-unsplash) · Daily Unsplash photo
+- [tesserae-widget-apple-album](https://github.com/dmellok/tesserae-widget-apple-album) · iCloud Shared Album carousel
+- [tesserae-widget-transport](https://github.com/dmellok/tesserae-widget-transport) · Melbourne PTV next departures
+- [tesserae-widget-public-holiday-countdown](https://github.com/dmellok/tesserae-widget-public-holiday-countdown) · Countdown to the next public holiday
+- [tesserae-widget-community-demo](https://github.com/dmellok/tesserae-widget-community-demo) · Hello-world widget for the marketplace install pipeline
+- [tesserae-widget-devref](https://github.com/dmellok/tesserae-widget-devref) · Every plugin contract surface in one repo, for widget developers
 
 Or filter the lot on the [topic page](https://github.com/dmellok?tab=repositories&q=topic%3Atesserae).
 
@@ -72,12 +77,12 @@ Or filter the lot on the [topic page](https://github.com/dmellok?tab=repositorie
 <details>
 <summary><b>Theme packs</b> · 6 repos · install via Browse community widgets</summary>
 
-- [tesserae-tonal](https://github.com/dmellok/tesserae-tonal) · 6 medium-vivid feature-colour-led light themes
-- [tesserae-pigment](https://github.com/dmellok/tesserae-pigment) · 10 saturated feature-colour-led light themes
-- [tesserae-muted](https://github.com/dmellok/tesserae-muted) · 10 mid-tone coloured-canvas themes
-- [tesserae-vivid](https://github.com/dmellok/tesserae-vivid) · 15 saturated single-colour themes
-- [tesserae-gradient](https://github.com/dmellok/tesserae-gradient) · 14 linear-gradient surface themes
-- [tesserae-auroras](https://github.com/dmellok/tesserae-auroras) · 6 atmospheric aurora-inspired three-stop gradient themes
+- [tesserae-theme-tonal](https://github.com/dmellok/tesserae-theme-tonal) · 6 medium-vivid feature-colour-led light themes
+- [tesserae-theme-pigment](https://github.com/dmellok/tesserae-theme-pigment) · 10 saturated feature-colour-led light themes
+- [tesserae-theme-muted](https://github.com/dmellok/tesserae-theme-muted) · 10 mid-tone coloured-canvas themes
+- [tesserae-theme-vivid](https://github.com/dmellok/tesserae-theme-vivid) · 15 saturated single-colour themes
+- [tesserae-theme-gradient](https://github.com/dmellok/tesserae-theme-gradient) · 14 linear-gradient surface themes
+- [tesserae-theme-auroras](https://github.com/dmellok/tesserae-theme-auroras) · 6 atmospheric aurora-inspired three-stop gradient themes
 
 </details>
 
