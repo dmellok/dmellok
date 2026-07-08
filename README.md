@@ -1,82 +1,96 @@
-### Kayden D'Mello
+# Kayden D'Mello
 
-Melbourne-based developer building full-stack Python systems, embedded display hardware, native macOS tools, and automation platforms.
+Creator of **[Tesserae](https://tesserae.ink)** — an open-source platform for e-paper dashboards.
+I build Python backends, embedded firmware, native macOS applications, and developer tooling.
 
-Former ANZ RPA Developer / Platform Support Engineer. Currently open to work in full-stack, automation/RPA, platform engineering, and embedded-adjacent roles.
+Melbourne, Australia · Ex-ANZ (platform engineering & automation) · Open to full-stack, platform, and embedded-adjacent roles.
 
----
-
-#### Flagship work
-
-[**Tesserae**](https://github.com/dmellok/tesserae)  
-Self-hosted dashboard companion for e-ink panels. Compose dashboards in a browser, render them server-side, and push frames to Raspberry Pi, ESP32, Pico, Kindle, TRMNL-style, and other panels over MQTT/HTTP. Tesserae is my main open-source project: server, plugin system, device clients, Home Assistant integration, widget marketplace, docs, installers, tests, and hardware support.
-
-[**VFD Desk HUD**](https://github.com/dmellok/vfd-dash)  
-Pi Pico W firmware for a 256×50 GP1287BI vacuum-fluorescent desk display. MQTT-fed live pages, OTA flashing, Home Assistant presence/lux integration, and a custom u8g2 fork for the BI controller. [Build writeup](https://dmello.io/building-a-vfd-desk-hud-with-a-pi-pico-w/?ref=github).
-
-[**OpenBanking Finance**](https://github.com/dmellok/openbanking-finance)  
-Self-hosted FastAPI dashboard for Australian CDR banking and brokerage data. Async Redbark ingestion, SQLModel persistence, Decimal-safe money handling, rate-limit-aware sync, and chart-heavy personal finance views.
-
-[**Claude Usage**](https://github.com/dmellok/claude-usage)  
-Native macOS menu-bar app for Claude Code usage tracking. Swift/SwiftUI app that reads OAuth credentials from Keychain, calls Anthropic usage endpoints, and publishes usage data to MQTT for Home Assistant or external dashboards.
+[dmello.io](https://dmello.io) · [LinkedIn](https://www.linkedin.com/in/dmello-io/) · dmellok@icloud.com
 
 ---
 
-#### Tesserae ecosystem
+## Tesserae
 
-Tesserae is split into focused repositories rather than one monolith:
+**[tesserae.ink](https://tesserae.ink)** · **[Documentation](https://docs.tesserae.ink/)** · **[Source](https://github.com/dmellok/tesserae)**
 
-- [**tesserae**](https://github.com/dmellok/tesserae) — core Flask server, editor, renderer pipeline, scheduler, MQTT/HTTP transport, plugin loader, widget runtime, theme system, installers, and docs.
-- [**tesserae-widgets**](https://github.com/dmellok/tesserae-widgets) — community widget catalog, screenshots, manifests, and audit-oriented review flow.
-- [**homeassistant-tesserae-addon**](https://github.com/dmellok/homeassistant-tesserae-addon) — Home Assistant Supervisor add-on packaging.
-- [**tesserae-device-pi-png**](https://github.com/dmellok/tesserae-device-pi-png) / [**tesserae-device-pi-bin**](https://github.com/dmellok/tesserae-device-pi-bin) — Raspberry Pi panel clients.
-- [**tesserae-device-esp32-bin**](https://github.com/dmellok/tesserae-device-esp32-bin) / [**tesserae-device-esp32-bw**](https://github.com/dmellok/tesserae-device-esp32-bw) — ESP32 e-paper firmware clients.
-- [**tesserae-device-pico-bin**](https://github.com/dmellok/tesserae-device-pico-bin) — RP2350/Pico-class e-paper client.
-- [**Tesserae topic view**](https://github.com/dmellok?tab=repositories&q=topic%3Atesserae) — widget bundles, theme packs, device clients, and experiments.
+A self-hosted dashboard server for e-ink displays. Compose tile-based dashboards in the browser; the server renders them headless, dithers against each panel's *measured* colour palette, packs the frame into the panel's native byte format, and delivers it over MQTT (always-on clients) or REST (battery clients). One server drives a fleet of panels — Raspberry Pi, ESP32, Kindle, TRMNL-compatible — with 14 panels verified on real hardware.
 
-Representative widgets include calendar/schedule, recipes, Spotify, GitHub, PostHog, finance, AFL/F1/football, Melbourne transport, BoM warnings, sky/aurora, OpenSky flights, Glances, OctoPrint, public-domain art, iCloud Shared Albums, Unsplash, and AI-generated briefs.
+AGPL-3.0-or-later. No cloud account, no telemetry, no hosted version — you run it.
 
----
+```
+browser editor           Tesserae server                     panels
+┌──────────┐   HTTP   ┌──────────────────────┐  MQTT push  ┌─────────────┐
+│ composer │─────────▶│ headless render      │────────────▶│ Pi + Inky   │
+│ /compose │          │ dither (measured     │             ├─────────────┤
+└──────────┘          │   palettes)          │  REST pull  │ ESP32,      │
+                      │ pack panel-native    │◀───────────▶│ Kindle,     │
+                      │ schedule / rotate    │             │ TRMNL       │
+                      └──────────────────────┘             └─────────────┘
+```
 
-#### What I’m good at
+**What makes it interesting**
 
-- Turning messy integrations into coherent, documented, shippable systems.
-- Python services with real test suites, CI, installers, release notes, and operational polish.
-- Hardware-adjacent software: MQTT, OTA, display drivers, render pipelines, battery-aware clients, and Home Assistant integration.
-- Native macOS utilities in Swift/SwiftUI with secure credential handling.
-- Automation and platform support shaped by production RPA experience.
-- Building small tools that connect APIs, dashboards, hardware, and local infrastructure.
+- **Render once, correctly.** The editor preview and the production render load the same URL in headless Chromium, so a dashboard can't look right in the editor and break on the panel.
+- **Dumb firmware by design.** Devices do no on-device image decoding — the server ships exact panel-native bytes (packed Spectra 6, 1-bit mono, 4-bit grayscale). Supporting a new panel is a board header plus one driver.
+- **Everything is a plugin.** Widgets, themes, fonts, renderers, transports, and device kinds are drop-a-folder extension points — the seams are real directories in the repo.
+- **Sandboxed third-party widgets.** Widgets declare the network hosts they need; the host enforces the allowlist at the socket layer. Community widgets install from an [audited, sha256-pinned catalog](https://github.com/dmellok/tesserae-widgets).
+- **Battery-first device protocol.** ESP32 clients wake, `GET` their frame with `If-None-Match` (a 304 skips the download *and* the slow e-ink refresh), report telemetry, and deep-sleep on a server-driven interval.
+- **Real installation paths.** Docker, Home Assistant add-on, LXC/Proxmox, shell installer — and ESP32 boards flash straight from the browser at [tesserae.ink/flash](https://tesserae.ink/flash), no toolchain.
 
----
+Pre-1.0 and moving fast: 1,100+ tests, ruff and `mypy --strict` on every push, every release documented in the [changelog](https://github.com/dmellok/tesserae/blob/main/CHANGELOG.md).
 
-#### Stack
+### The ecosystem
 
-**Backend**  
-Python · Flask · FastAPI · SQLModel · SQLite · Playwright · pytest · ruff · mypy
+Tesserae is split into focused repositories, each owning one layer:
 
-**Frontend / UI**  
-TypeScript · Lit · vanilla JavaScript · Chart.js · server-rendered HTML/CSS
-
-**Native**  
-Swift · SwiftUI · macOS menu-bar apps · Keychain
-
-**Embedded / hardware**  
-C · C++ · ESP32-S3 · RP2040/RP2350 · Raspberry Pi · PlatformIO · ESP-IDF · arduino-pico · e-paper · VFDs
-
-**Systems / integration**  
-MQTT · Docker · Home Assistant · GitHub Actions · REST APIs · OAuth · webhooks · local-first tooling
-
-**AI / automation**  
-Anthropic API · Claude Code · MCP · workflow automation · RPA/platform operations
+| Layer | Repository | What it does |
+|---|---|---|
+| Core platform | [tesserae](https://github.com/dmellok/tesserae) | Server: editor, render pipeline, scheduler, plugin loader, MQTT + REST transports, docs |
+| Device firmware | [tesserae-device-firmware](https://github.com/dmellok/tesserae-device-firmware) | One ESP-IDF codebase driving eight e-paper boards (Seeed reTerminal E-Series, XIAO, Waveshare, TRMNL DIY), flashable from the browser |
+| Raspberry Pi clients | [tesserae-device-pi-png](https://github.com/dmellok/tesserae-device-pi-png) · [tesserae-device-pi-bin](https://github.com/dmellok/tesserae-device-pi-bin) | Daemons that paint frames onto Pimoroni Inky panels — a PNG path for the broadest hardware support, a packed-binary path for speed |
+| Microcontroller client | [tesserae-device-pico-bin](https://github.com/dmellok/tesserae-device-pico-bin) | RP2350 deep-sleep client for Inky panels, written in C against the Pico SDK |
+| Widget catalog | [tesserae-widgets](https://github.com/dmellok/tesserae-widgets) | Community widgets: pinned release tarballs, sha256-verified, schema-validated, PR-reviewed |
+| Home Assistant | [homeassistant-tesserae-addon](https://github.com/dmellok/homeassistant-tesserae-addon) | Supervisor add-on — Tesserae in the HA sidebar, authenticated through HA's own session |
 
 ---
 
-#### Current focus
+## Other projects
 
-I’m currently focused on Tesserae: making e-ink dashboards easier to install, extend, and run across real hardware. The project touches most of the work I enjoy: backend architecture, plugin systems, render pipelines, embedded clients, MQTT, Home Assistant, docs, release engineering, and product polish.
+### [Claude Usage](https://github.com/dmellok/claude-usage)
+
+Native macOS menu-bar app showing live Claude Code usage: 5-hour and 7-day windows, per-model breakdowns, and extra-usage credits, with reset countdowns in the menu bar. Built because usage limits are invisible until you hit them. Swift/SwiftUI, reads OAuth tokens from the Keychain (with refresh handling), and includes a zero-dependency MQTT 3.1.1 publisher on Apple's Network framework for Home Assistant dashboards.
+
+### [OpenBanking Finance](https://github.com/dmellok/openbanking-finance)
+
+Self-hosted personal finance dashboard for Australian bank and brokerage accounts via the Consumer Data Right. Built because personal financial data shouldn't live in someone else's cloud. FastAPI + SQLModel/SQLite with an in-process scheduler; the async sync client is rate-limit aware and idempotent (watermarks + merge on provider ID); money is `Decimal` end-to-end; six tabs of ECharts visualisations with no frontend build step. `mypy --strict` and pytest in CI.
+
+### [VFD Desk HUD](https://github.com/dmellok/vfd-dash)
+
+Custom firmware for a 256×50 vacuum-fluorescent display driven by a Raspberry Pi Pico W — eleven pages of live info (weather, now-playing with audio visualisers, 3D-print progress, Claude usage) fed over MQTT. Required a custom u8g2 fork: the GP1287BI controller isn't upstream, and the panel needs LSB-first software SPI on a non-SCK pin. OTA updates, a wireless screenshot endpoint, and Home Assistant presence/lux integration. [Build writeup](https://dmello.io/building-a-vfd-desk-hud-with-a-pi-pico-w/).
 
 ---
 
-#### Reach me
+## Technologies
 
-[dmello.io](https://dmello.io/?ref=github) · [LinkedIn](https://www.linkedin.com/in/dmello-io/) · dmellok@icloud.com
+**Backend** — Python, Flask, FastAPI, SQLModel, SQLite, Playwright, pytest, ruff, mypy (strict)
+
+**Frontend** — TypeScript, Lit, vanilla JS, Chart.js, ECharts, Astro, server-rendered HTML/CSS
+
+**Embedded** — C, C++, ESP-IDF, Pico SDK, PlatformIO, ESP32-S3, RP2040/RP2350, e-paper and VFD drivers
+
+**Native** — Swift, SwiftUI, Keychain, Network framework, menu-bar apps
+
+**Infrastructure** — Docker, GitHub Actions, MQTT, Home Assistant, REST/OpenAPI, OAuth, systemd
+
+---
+
+## Current focus
+
+- Growing Tesserae's hardware support — a generic CircuitPython client covering 400+ boards is [in development](https://github.com/dmellok/tesserae/discussions/24)
+- Improving the render pipeline: palette calibration, dithering quality, panel-native formats
+- Growing the community widget catalog and its review tooling
+- Keeping the [documentation](https://docs.tesserae.ink/) ahead of the code
+
+---
+
+If Tesserae earns a place on your wall, [sponsorship](https://github.com/sponsors/dmellok) keeps the panels lit. For everything else: [dmello.io](https://dmello.io) · [LinkedIn](https://www.linkedin.com/in/dmello-io/) · dmellok@icloud.com
