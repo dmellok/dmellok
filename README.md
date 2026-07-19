@@ -15,7 +15,7 @@ Melbourne, Australia · Ex-ANZ (platform engineering & automation) · Open to fu
 
 A self-hosted dashboard server for e-ink displays. Compose tile-based dashboards in the browser; the server renders them headless, dithers against each panel's *measured* colour palette, packs the frame into the panel's native byte format, and delivers it over MQTT (always-on clients) or REST (battery clients). One server drives a fleet of panels — Raspberry Pi, ESP32, Kindle, TRMNL-compatible — with 14 panels verified on real hardware.
 
-AGPL-3.0-or-later. No cloud account, no telemetry, no hosted version — you run it.
+AGPL-3.0-or-later. No cloud account, no hosted version — you run it.
 
 ```
 browser editor           Tesserae server                     panels
